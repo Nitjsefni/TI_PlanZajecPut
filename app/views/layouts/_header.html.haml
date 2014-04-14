@@ -1,0 +1,46 @@
+
+.navbar.navbar-inverse.navbar-static-top
+  %btn.btn-navbar{ "data-toggle" => "collapse", "data-target" => ".navbar-collapse"}
+    %span3.icon-bar
+    %span.icon-bar
+    %span.icon-bar
+  %a.navbar-brand{:href => '/'}= 'Plan Zajec'
+  
+  %ul.nav.navbar-nav
+    %li
+
+      %li= link_to 'Nowe zajecie', new_course_path
+
+      %li    
+        %li= link_to 'Lista zajec', courses_path 
+
+
+      %li.dropdown
+        %a.dropdown-toggle{"data-toggle" => "dropdown", "role" => "button", "data-target" => "#", :href => "#"}
+          Test
+          %b.caret
+        %ul.dropdown-menu{"role" => "menu"}
+          %li
+          %li
+
+
+  %ul.nav.navbar-nav.pull-right
+    
+
+      
+      
+    
+
+    - if user_signed_in?
+
+      %li= link_to current_user.try(:email), edit_user_registration_path
+      %li= link_to 'Logout', destroy_user_session_path
+    - else
+      %li
+        = link_to 'English',  url_for( :locale => 'en' )
+
+      %li
+        = link_to 'Polski', url_for( :locale => 'pl' )
+      %li= link_to 'Sign in', new_user_session_path
+      %li= link_to 'Sign up', new_user_registration_path
+

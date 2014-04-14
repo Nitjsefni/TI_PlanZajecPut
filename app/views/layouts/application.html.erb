@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>PlanZajecPut</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <title>Plan Zajec PUT</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag  "jquery", "application", "data-turbolinks-track" => true %>
+
   <%= csrf_meta_tags %>
+
 </head>
 <body>
+   <div id="wrap">
+      <%= render :partial => 'layouts/header' %>
 
-<%= yield %>
+      <p class="notice" style="text-align:center"><%= notice %></p>
+
+
+      <%= yield %>
+
+       <div id="push"></div>
+  </div>
+  
+<div align= "center">
+  <%= render :partial => 'layouts/footer' %>
+</div>
 
 </body>
-</html>

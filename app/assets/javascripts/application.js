@@ -12,5 +12,15 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require twitter/bootstrap
+
+//= require jquery.ui.datepicker
 //= require_tree .
+//= require_self
+
+(function() {
+  jQuery(function() {
+    return $(".measure_data").datetimepicker({ dateFormat: 'yy-mm-dd', timeFormat: 'HH:mm'});
+  });
+
+}).call(this);

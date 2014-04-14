@@ -1,10 +1,12 @@
 class CoursesController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+
 
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = current_user.courses.all
   end
 
   # GET /courses/1
@@ -14,7 +16,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = Course.new
+    @course = current_user.courses.new
   end
 
   # GET /courses/1/edit
@@ -24,7 +26,7 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
+    @course = current_user.courses.new(course_params)
 
     respond_to do |format|
       if @course.save
@@ -64,11 +66,11 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = Course.find(params[:id])
+      @course = current_user.courses.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :type, :lecturer, :place, :description, :date, :time_beg, :time_end, :deans_group)
+      params.require(:course).permit(:name, :typ, :lecturer, :place, :description, :date, :time_beg, :time_end, :deans_group)
     end
 end

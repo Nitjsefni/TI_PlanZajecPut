@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  resources :courses
+  resources :courses do
+    collection { post :import }
+  end
 
+  root to: "courses#index"
+  devise_for :users, :controllers => { :registrations => "registrations" }
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -5,6 +5,9 @@ source 'https://rubygems.org'
 gem 'rails', '4.1.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+# Use mysql as the database for Active Record
+gem 'mysql2'
+gem 'yaml_db'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
@@ -38,3 +41,23 @@ gem 'spring',        group: :development
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+# Use thin as the web server
+gem 'thin'
+#rvm
+gem 'rvm'
+gem 'capistrano'
+gem 'capistrano-ext'
+gem 'capistrano_colors'
+gem 'rvm-capistrano'
+gem 'jquery-ui-rails'
+
+gem "twitter-bootstrap-rails"
+gem 'kaminari'
+gem 'rails-i18n', '~> 4.0.0.pre'
+gem 'fastercsv'
+gem 'simple_form'
+gem 'acts-as-taggable-on'
+
+gem 'devise'
+gem 'haml'
+gem 'haml-rails'
