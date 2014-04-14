@@ -1,28 +1,5 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Kuba 14.04.2014 14:51
+Nasz projekt, nie będę się bawił w jakieś heroku itp bo same problemy, będę push'ował tu wszystko. 
+Narazie jest szkielet, jeszcze sie pobawię dzis i jutro coś możecie już pokazać.
