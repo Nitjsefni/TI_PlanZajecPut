@@ -6,7 +6,7 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = current_user.courses.all
+    @courses = Course.all
   end
 
   # GET /courses/1
@@ -16,7 +16,7 @@ class CoursesController < ApplicationController
 
   # GET /courses/new
   def new
-    @course = current_user.courses.new
+    @course = Course.new
   end
 
   # GET /courses/1/edit
@@ -26,7 +26,7 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = current_user.courses.new(course_params)
+    @course = Course.new(course_params)
 
     respond_to do |format|
       if @course.save
@@ -66,11 +66,11 @@ class CoursesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_course
-      @course = current_user.courses.find(params[:id])
+      @course = Course.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :typ, :lecturer, :place, :description, :date, :time_beg, :time_end, :deans_group)
+      params.require(:course).permit(:name, :typ, :lecturer, :place, :description, :id_grade, :id_deans_group, :id_subdeans_group, :cycle, :day)
     end
 end

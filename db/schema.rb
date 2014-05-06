@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140414200905) do
+ActiveRecord::Schema.define(version: 20140506141152) do
 
   create_table "courses", force: true do |t|
     t.string   "name"
@@ -19,13 +19,53 @@ ActiveRecord::Schema.define(version: 20140414200905) do
     t.string   "lecturer"
     t.string   "place"
     t.text     "description"
-    t.date     "date"
-    t.time     "time_beg"
-    t.time     "time_end"
-    t.string   "deans_group"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
+    t.integer  "id_grade"
+    t.integer  "id_deans_group"
+    t.integer  "id_subdeans_group"
+    t.integer  "cycle"
+    t.integer  "day"
+  end
+
+  create_table "deans_groups", force: true do |t|
+    t.integer  "number"
+    t.integer  "id_grade"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.integer  "id_course"
+    t.date     "course_date"
+    t.time     "time_beginning"
+    t.time     "time_end"
+    t.string   "lecture_hall"
+    t.string   "addit_info"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "grades", force: true do |t|
+    t.date     "year_beginning"
+    t.date     "year_end"
+    t.integer  "id_specialization"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "specializations", force: true do |t|
+    t.string   "name"
+    t.string   "faculty"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subdeans_groups", force: true do |t|
+    t.integer  "number"
+    t.integer  "id_deans_group"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", force: true do |t|

@@ -16,7 +16,8 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :typ %><br>
+    <%= f.label "Type" %><br>
+    Lecture / Lab / Project / Practice<br>
     <%= f.text_field :typ %>
   </div>
   <div class="field">
@@ -32,22 +33,28 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :date %><br>
-    <%= f.date_select :date %>
+    <%= f.label "Grade" %><br>
+    <%= f.text_field :id_grade %>
   </div>
   <div class="field">
-    <%= f.label :time_beg %><br>
-    <%= f.time_select :time_beg %>
+    <%= f.label "Deans Group" %><br>
+    <%= f.text_field :id_deans_group %>
   </div>
   <div class="field">
-    <%= f.label :time_end %><br>
-    <%= f.time_select :time_end %>
+    <%= f.label "Subdeans Group" %><br>
+    <%= f.text_field :id_subdeans_group %>
   </div>
-  <div class="field">
-    <%= f.label :deans_group %><br>
-    <%= f.text_field :deans_group %>
+   <div class="field">
+    <%= f.label "Cycle" %><br>
+    0 - every week, 1 - first week, 2 - second week<br>
+    <%= f.text_field :cycle %>
+  </div>
+   <div class="field">
+    <%= f.label :day %><br>
+    Number of day in week 1-5<br>
+    <%= f.text_field :day %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: 'btn btn-primary' %>
   </div>
 <% end %>

@@ -26,24 +26,30 @@
 </p>
 
 <p>
-  <strong>Date:</strong>
-  <%= @course.date %>
-</p>
-
-<p>
-  <strong>Time beg:</strong>
-  <%= @course.time_beg %>
-</p>
-
-<p>
-  <strong>Time end:</strong>
-  <%= @course.time_end %>
+  <strong>Grade:</strong>
+  <%= @course.id_grade %>
 </p>
 
 <p>
   <strong>Deans group:</strong>
-  <%= @course.deans_group %>
+  <%= @course.id_deans_group %>
 </p>
+
+<p>
+  <strong>Subdeans group:</strong>
+  <%= @course.id_subdeans_group %>
+</p>
+
+<p>
+  <strong>Cycle:</strong>
+  <%= @course.cycle %>
+</p>
+
+<p>
+  <strong>Day:</strong>
+  <%= @course.day %>
+</p>
+
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
