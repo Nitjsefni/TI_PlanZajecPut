@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @event.course.name %>
+</p>
+
+<p>
+  <strong>Date of course:</strong>
+  <%= @event.course_date %>
+</p>
+
+<p>
+  <strong>Time of beginning:</strong>
+  <%= @event.time_beginning %>
+</p>
+
+<p>
+  <strong>Time of ending:</strong>
+  <%= @event.time_end %>
+</p>
+
+<p>
+  <strong>Lecture hall:</strong>
+  <%= @event.lecture_hall %>
+</p>
+
+<p>
+  <strong>Additional informations:</strong>
+  <%= @event.addit_info %>
+</p>
+
+
+
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', event_path %>

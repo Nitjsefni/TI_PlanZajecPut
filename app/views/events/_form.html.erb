@@ -1,0 +1,42 @@
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
+
+      <ul>
+      <% @event.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <div class="field">
+    <%= f.label "Course" %><br>
+    <%= collection_select(:event,:id_course,Course.all,:id,:name) %>
+  </div>
+  <div class="field">
+    <%= f.label "Date" %><br>
+    <%= f.date_select :course_date %>
+  </div>
+  <div class="field">
+    <%= f.label "Time of beginning" %><br>
+    <%= f.time_select :time_beginning %>
+  </div>
+  <div class="field">
+    <%= f.label "Time of ending" %><br>
+    <%= f.time_select :time_end %>
+  </div>
+  <div class="field">
+    <%= f.label "Lecture hall" %><br>
+    <%= f.text_area :lecture_hall %>
+  </div>
+  <div class="field">
+    <%= f.label "Additional informations" %><br>
+    <%= f.text_field :addit_info %>
+  </div>
+  <div class="actions">
+    <%= f.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
