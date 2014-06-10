@@ -16,7 +16,7 @@
   <tbody>
     <% @events.each do |event| %>
       <tr>
-        <td><%= event.id_course %></td>
+        <td><%= Course.find(event.id_course).name %>
         <td><%= event.course_date %></td>
         <td><%= event.time_beginning %></td>
         <td><%= event.time_end %></td>

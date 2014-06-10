@@ -2,7 +2,7 @@
 
 <p>
   <strong>Name:</strong>
-  <%= @event.course.name %>
+  <%= Course.find(@event.id_course).name %>
 </p>
 
 <p>
