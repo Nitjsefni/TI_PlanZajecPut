@@ -25,10 +25,6 @@
   <%= @course.description %>
 </p>
 
-<p>
-  <strong>Grade:</strong>
-  <%= @course.id_grade %>
-</p>
 
 <p>
   <strong>Deans group:</strong>
@@ -41,15 +37,41 @@
 </p>
 
 <p>
+
+<p>
   <strong>Cycle:</strong>
-  <%= @course.cycle %>
+  <% if @course.cycle == 0 %>
+                Every week
+              <% elsif @course.cycle == 1 %>
+                Odd week
+              <% elsif @course.cycle == 2 %>
+                 Even week
+            <%end%>
 </p>
+
 
 <p>
   <strong>Day:</strong>
-  <%= @course.day %>
+  <% if @course.day == 1 %>
+                      Monday
+                    <% elsif @course.day == 2 %>
+                      Tuesday
+                    <% elsif @course.day == 3 %>
+                      Wednsday
+                    <% elsif @course.day == 4 %>
+                      Thursday
+                    <% elsif @course.day == 5 %>
+                      Friday
+                    <%end%>
 </p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @course.htime.strftime('%H:%M:%S') %> - <%= @course.ehtime.strftime('%H:%M:%S') %>
+</p> 
+
 
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
+
 <%= link_to 'Back', courses_path %>

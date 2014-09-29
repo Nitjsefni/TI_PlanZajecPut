@@ -17,8 +17,7 @@
   </div>
   <div class="field">
     <%= f.label "Type" %><br>
-    Lecture / Lab / Project / Practice<br>
-    <%= f.text_field :typ %>
+    <%= f.select :typ, [['Lecture'],['Laboratories'],['Project'],['Practice']] %>
   </div>
   <div class="field">
     <%= f.label :lecturer %><br>
@@ -33,10 +32,6 @@
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label "Grade" %><br>
-    <%= f.text_field :id_grade %>
-  </div>
-  <div class="field">
     <%= f.label "Deans Group" %><br>
     <%= f.text_field :id_deans_group %>
   </div>
@@ -49,10 +44,17 @@
     0 - every week, 1 - first week, 2 - second week<br>
     <%= f.text_field :cycle %>
   </div>
-   <div class="field">
-    <%= f.label :day %><br>
-    Number of day in week 1-5<br>
-    <%= f.text_field :day %>
+    <div class="field">
+    <%= f.label "Day" %><br>
+    <%= f.select :day, [['Monday',1],['Tuesday',2],['Wednsday',3],['Thursday',4],['Friday',5]] %>
+  </div>
+    <div class="field">
+    <%= f.label "Start time" %><br>
+    <%= f.time_select :htime %>
+  </div>
+      <div class="field">
+    <%= f.label "End time" %><br>
+    <%= f.time_select :ehtime %>
   </div>
   <div class="actions">
     <%= f.submit class: 'btn btn-primary' %>

@@ -6,7 +6,13 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    unless params[:id_deans_group]
+         @courses = Course.all.order("id_deans_group ASC")
+      else
+       
+
+    @courses = Course.order("id_deans_group ASC").find_by_deans_grop(params[:id_deans_group])
+  end
   end
 
   # GET /courses/1
@@ -71,6 +77,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.require(:course).permit(:name, :typ, :lecturer, :place, :description, :id_grade, :id_deans_group, :id_subdeans_group, :cycle, :day)
+      params.require(:course).permit(:name, :typ, :lecturer, :place, :description, :id_grade, :id_deans_group, :id_subdeans_group, :cycle, :day, :htime, :ehtime)
     end
 end

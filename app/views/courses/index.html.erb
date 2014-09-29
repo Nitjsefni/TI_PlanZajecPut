@@ -1,4 +1,473 @@
- <h1>Listing courses</h1>
+ <div align= "center">
+<h1>Table of courses <% if params[:id_deans_group] %> 
+      <% @courses.select("distinct id_deans_group").each do |course| %> <%= course.id_deans_group %><%end%><% end %></h1>
+</div>
+<div align= "center">
+
+
+    <div class="btn-group">
+      <%= link_to "All groups", courses_path, class: "btn btn-default" %>
+      <% Course.select("distinct id_deans_group").order("id_deans_group ASC").each do |status| %>
+        <%= link_to  status.id_deans_group, courses_path(:id_deans_group=>status.id_deans_group), class: "btn btn-default" %>
+      <%end%>
+    </div>
+</div>
+
+<% if params[:id_deans_group] %>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Time </th>
+      <th>Monday</th>
+      <th>Tuesday</th>
+      <th>Wednsday</th>
+      <th>Thursday</th>
+      <th>Friday</th>
+
+      
+
+
+    </tr>
+  </thead>
+  <tbody> 
+      <tr>
+            <td> 08:00 - 09:30 </td>
+           
+              <td>
+                  <% @courses.where("day = '1' and (htime = '08:00:00' or ehtime = '09:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br> <%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                  <% @courses.where("day = '2' and (htime = '08:00:00' or ehtime = '09:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br> <%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+                        <td>
+                  <% @courses.where("day = '3' and (htime = '08:00:00' or ehtime = '09:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br> <%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+                        <td>
+                  <% @courses.where("day = '4' and (htime = '08:00:00' or ehtime = '09:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br> <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                  <% @courses.where("day = '5' and (htime = '08:00:00' or ehtime = '09:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br> <%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+        </tr>
+<%-########################################################################################################## -%>
+
+        <tr>
+          <td> 09:45 - 11:15 </td>
+          <td>
+                <% @courses.where("day = '1' and (htime = '09:45:00' or ehtime = '11:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '2' and (htime = '09:45:00' or ehtime = '11:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                                        <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '3' and (htime = '09:45:00' or ehtime = '11:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '4' and (htime = '09:45:00' or ehtime = '11:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '5' and (htime = '09:45:00' or ehtime = '11:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+      </tr>
+
+<%-################################################################################################### %>
+
+<tr>
+          <td> 11:45 - 13:15 </td>
+          <td>
+                <% @courses.where("day = '1' and (htime = '11:45:00' or ehtime = '13:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '2' and (htime = '11:45:00' or ehtime = '13:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                                        <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '3' and (htime = '11:45:00' or ehtime = '13:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '4' and (htime = '11:45:00' or ehtime = '13:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '5' and (htime = '11:45:00' or ehtime = '13:15:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+      </tr>
+
+<%-################################################################################################### %>
+
+<tr>
+          <td> 13:30 - 15:00 </td>
+          <td>
+                <% @courses.where("day = '1' and (htime = '13:30:00' or ehtime = '15:00:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '2' and (htime = '13:30:00' or ehtime = '15:00:00')").order("id_subdeans_group ASC").each do |course| %>
+                                        <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '3' and (htime = '13:30:00' or ehtime = '15:00:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '4' and (htime = '13:30:00' or ehtime = '15:00:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '5' and (htime = '13:30:00' or ehtime = '15:00:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+      </tr>
+
+      <%-################################################################################################### %>
+
+<tr>
+          <td> 15:15 - 16:45 </td>
+          <td>
+                <% @courses.where("day = '1' and (htime = '15:15:00' or ehtime = '16:45:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '2' and (htime = '15:15:00' or ehtime = '16:45:00')").order("id_subdeans_group ASC").each do |course| %>
+                                        <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '3' and (htime = '15:15:00' or ehtime = '16:45:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '4' and (htime = '15:15:00' or ehtime = '16:45:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '5' and (htime = '15:15:00' or ehtime = '16:45:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+      </tr>
+
+ <%-################################################################################################### %>
+
+<tr>
+          <td> 17:00 - 18:30 </td>
+          <td>
+                <% @courses.where("day = '1' and (htime = '17:00:00' or ehtime = '18:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '2' and (htime = '17:00:00' or ehtime = '18:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                                        <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '3' and (htime = '17:00:00' or ehtime = '18:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br><%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '4' and (htime = '17:00:00' or ehtime = '18:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br> <%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+              <td>
+                <% @courses.where("day = '5' and (htime = '17:00:00' or ehtime = '18:30:00')").order("id_subdeans_group ASC").each do |course| %>
+                      <%= link_to course.name, course %> <%= course.typ %> <br> Group <%= course.id_subdeans_group %> 
+                       <% if course.cycle == 0 %>
+                    - Every week
+                    <% elsif course.cycle == 1 %>
+                      - Odd week
+                    <% elsif course.cycle == 2 %>
+                      - Even week
+                    <%end%>
+                    <br> <%= course.lecturer %> - <%= course.place %>  <br>
+                  <% end %>
+              </td>
+      </tr>
+  </tbody>
+
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
 
 <table class="table">
   <thead>
@@ -8,28 +477,51 @@
       <th>Lecturer</th>
       <th>Place</th>
       <th>Description</th>
-      <th>Grade</th>
       <th>Deans Group</th>
       <th>Subdeans Group</th>
       <th>Cycle</th>
-      <th>Day of week</th>
+      <th>Day</th>
+      <th>Start time</th>
+      <th>End time</th>
+
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @courses.each do |course| %>
+    <% @courses.order("day ASC").order("id_deans_group ASC").order("id_subdeans_group ASC").each do |course| %>
       <tr>
         <td><%= course.name %></td>
         <td><%= course.typ %></td>
         <td><%= course.lecturer %></td>
         <td><%= course.place %></td>
         <td><%= course.description %></td>
-        <td><%= course.id_grade %></td>
         <td><%= course.id_deans_group %></td>
         <td><%= course.id_subdeans_group %></td>
-        <td><%= course.cycle %></td>
-        <td><%= course.day %></td>
+        <td>  <% if course.cycle == 0 %>
+                Every week
+              <% elsif course.cycle == 1 %>
+                Odd week
+              <% elsif course.cycle == 2 %>
+                 Even week
+            <%end%> </td>
+          <td>
+                    <% if course.day == 1 %>
+                      Monday
+                    <% elsif course.day == 2 %>
+                      Tuesday
+                    <% elsif course.day == 3 %>
+                      Wednsday
+                    <% elsif course.day == 4 %>
+                      Thursday
+                    <% elsif course.day == 5 %>
+                      Friday
+                    <%end%>
+          </td>
+          <td><%= course.htime.strftime('%H:%M:%S') %></td>
+          <td><%= course.ehtime.strftime('%H:%M:%S') %></td>
+      </td>
+
         <td><%= link_to 'Show', course,class: 'btn btn-primary btn-primary' %>
         <%= link_to 'Edit', edit_course_path(course), class: "btn btn-medium btn-warning" %>
         <%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-medium  btn-danger" %></td>

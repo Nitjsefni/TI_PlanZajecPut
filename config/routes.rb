@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   resources :courses do
     collection { post :import }
   end
-  resources :events do
-    collection { post :import }
-  end
+
   
   root to: "courses#index"
   devise_for :users, :controllers => { :registrations => "registrations" }
